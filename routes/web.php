@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuditController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,20 +15,19 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
-
     Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
 
     // Rutas de Productos - accesibles para usuarios autenticados
     Route::resource('products', ProductController::class);
 
+    // Rutas solo para administradores
     Route::middleware(['role:admin'])->group(function () {
-    
-        Route::get('/admin/config', [AdminController::class, 'index'])->name('admin.config');
-
-    });
-
-    Route::middleware(['role:admin|user'])->group(function () {
-        // Route::get('/solo-para-usuarios', ...);
+        
+        Route::resource('users', UserController::class);
+        
+        // Auditoría
+        Route::get('/audits', [AuditController::class, 'index'])->name('audits.index');
+        Route::get('/audits/{audit}', [AuditController::class, 'show'])->name('audits.show');
     });
 
 });
