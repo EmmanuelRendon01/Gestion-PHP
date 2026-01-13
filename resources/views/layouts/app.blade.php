@@ -13,14 +13,11 @@
         <!-- Materialize CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+
         <!-- Styles -->
         @livewireStyles
-        
-        <style>
-            nav .brand-logo { margin-left: 20px; }
-            .sidenav-trigger { margin-left: 10px; }
-            main { padding-top: 20px; }
-        </style>
     </head>
     <body>
         {{-- Navbar --}}

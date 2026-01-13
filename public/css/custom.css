@@ -1,0 +1,26 @@
+/* Estilos personalizados para el Sistema de Gestión */
+
+/* Navbar */
+nav .brand-logo { 
+    margin-left: 20px; 
+}
+
+.sidenav-trigger { 
+    margin-left: 10px; 
+}
+
+/* Contenido principal */
+main { 
+    padding-top: 20px; 
+}
+
+
+.dropdown-content li > form > a {
+    color: #26a69a !important;
+    display: block;
+    padding: 14px 16px;
+}
+
+.dropdown-content li > form {
+    margin: 0;
+}
